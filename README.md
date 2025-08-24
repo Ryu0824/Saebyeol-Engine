@@ -1,2 +1,2 @@
 # Saebyeol-Engine
-A custom game engine built with DirectX 11
+A custom game engine built with DirectX 11.
