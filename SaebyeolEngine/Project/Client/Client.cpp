@@ -1,6 +1,15 @@
 ﻿#include "framework.h"
 #include "Client.h"
 
+#include <global.h>
+#include <Engine.h>
+
+#ifdef _DEBUG
+#pragma comment(lib,"Engine_Debug.lib")
+#else
+#pragma comment(lib,"Engine.lib")
+#endif
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -54,6 +63,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             }
             else
             {
+                Engine::GetInst()->Update();
             }
         }
     }
