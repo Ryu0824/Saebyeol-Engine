@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="01.Header">
+      <UniqueIdentifier>{664f6515-b918-4451-80a9-1afe136b2be0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Engine">
+      <UniqueIdentifier>{70c7abb2-3e6d-4471-9847-4a7accedddd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Manager">
+      <UniqueIdentifier>{627e364c-7748-4d73-8a19-46c247704930}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="default">
+      <UniqueIdentifier>{436d239e-2c2a-4787-bb7f-b4b8bce4d8e9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="global.h">
+      <Filter>01.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>02.Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>01.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h">
+      <Filter>01.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>default</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.h">
+      <Filter>01.Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Engine.cpp">
+      <Filter>02.Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="global.cpp">
+      <Filter>01.Header</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>default</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

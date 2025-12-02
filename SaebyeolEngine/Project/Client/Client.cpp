@@ -1,8 +1,14 @@
-﻿// Client.cpp : 애플리케이션에 대한 진입점을 정의합니다.
-//
-
-#include "framework.h"
+﻿#include "framework.h"
 #include "Client.h"
+
+#include <global.h>
+#include <Engine.h>
+
+#ifdef _DEBUG
+#pragma comment(lib,"Engine_Debug.lib")
+#else
+#pragma comment(lib,"Engine.lib")
+#endif
 
 #define MAX_LOADSTRING 100
 
@@ -26,6 +32,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
 
     // TODO: 여기에 코드를 입력합니다.
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+    //_CrtSetBreakAlloc(822);
 
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
@@ -42,13 +50,30 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
-    // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
+    WindowInfo info = {};
+
+    if (FAILED(Engine::GetInst()->Awake(info)))
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        return E_FAIL;
+    }
+
+    // 기본 메시지 루프입니다:
+    while (TRUE)
+    {
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
+            if (msg.message == WM_QUIT)
+                break;
+
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+            else
+            {
+                Engine::GetInst()->Update();
+            }
         }
     }
 
