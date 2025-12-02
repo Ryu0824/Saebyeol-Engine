@@ -5,12 +5,12 @@ class Engine : public Singleton<Engine>
 	Single(Engine)
 
 private:
-	WindowInfo info;
+	WindowInfo m_Info;
 
 public:
-	HWND GetHwnd() { return info.Hwnd; }
-	Vec2 GetRes() { return info.vRes; }
-	void SetRes(const Vec2& _vRes) { info.vRes = _vRes; }
+	HWND GetHwnd() { return m_Info.Hwnd; }
+	Vec2 GetRes() { return m_Info.vRes; }
+	void SetRes(const Vec2& _vRes) { m_Info.vRes = _vRes; }
 
 public:
 	void AdjustWindow();

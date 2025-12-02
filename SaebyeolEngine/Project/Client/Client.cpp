@@ -32,6 +32,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
 
     // TODO: 여기에 코드를 입력합니다.
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+    //_CrtSetBreakAlloc(822);
 
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
@@ -48,8 +50,15 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
+    WindowInfo info = {};
+
+    if (FAILED(Engine::GetInst()->Awake(info)))
+    {
+        return E_FAIL;
+    }
+
     // 기본 메시지 루프입니다:
-    while (1)
+    while (TRUE)
     {
         if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {

@@ -2,7 +2,7 @@
 #include "Engine.h"
 
 Engine::Engine()
-	:info{}
+	:m_Info{}
 {
 
 }
@@ -22,13 +22,19 @@ void Engine::ResizeWindow()
 
 void Engine::AwakeManager()
 {
+
 }
 
 int Engine::Awake(const WindowInfo& _winInfo)
 {
-	return 0;
+	m_Info = _winInfo;
+
+	AwakeManager();
+
+	return S_OK;
 }
 
 void Engine::Update()
 {
+
 }
