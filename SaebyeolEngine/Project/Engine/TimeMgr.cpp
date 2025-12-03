@@ -38,7 +38,7 @@ void TimeMgr::Update()
 		// FRAME Ç¥½Ã
 
 		m_fTime = 0.f;
-		m_iCall = 0.f;
+		m_iCall = 0;
 	}
 
 	++m_iCall;
