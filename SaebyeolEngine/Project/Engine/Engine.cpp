@@ -1,6 +1,8 @@
 ﻿#include "pch.h"
 #include "Engine.h"
 
+#include "TimeMgr.h"
+
 Engine::Engine()
 	:m_Info{}
 {
@@ -22,7 +24,7 @@ void Engine::ResizeWindow()
 
 void Engine::AwakeManager()
 {
-
+	TimeMgr::GetInst()->Awake();
 }
 
 int Engine::Awake(const WindowInfo& _winInfo)
@@ -36,5 +38,5 @@ int Engine::Awake(const WindowInfo& _winInfo)
 
 void Engine::Update()
 {
-
+	TimeMgr::GetInst()->Update();
 }
