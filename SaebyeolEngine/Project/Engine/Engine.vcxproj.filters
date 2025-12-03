@@ -33,6 +33,9 @@
     <ClInclude Include="singleton.h">
       <Filter>01.Header</Filter>
     </ClInclude>
+    <ClInclude Include="TimeMgr.h">
+      <Filter>04.Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -43,6 +46,9 @@
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>default</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeMgr.cpp">
+      <Filter>04.Manager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
